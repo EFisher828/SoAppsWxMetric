@@ -326,8 +326,9 @@ def main():
     now = datetime.now()
     current_time = now.strftime("%I:%M %p")
     plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+    plt.figtext(0.5,-0.2,"Developed by Evan Fisher and Wes Grimes",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
     #show/save graphic
-    plt.savefig("output/plot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
-    #plt.show()
+    #plt.savefig("output/plot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+    plt.show()
 
 main()
