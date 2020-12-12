@@ -293,8 +293,8 @@ def main():
     #max/mins & fonts
     maximum = max(height)+3
     minimum = min(height)-3
-    font = {'fontname':'Candara','size':16,'color':'white'}
-    font2 = {'fontname':'Candara','size':24,'color':'white'}
+    font = {'size':16,'color':'white'}
+    font2 = {'size':24,'color':'white'}
 
     #color
     color_1 = np.array(height)
@@ -325,7 +325,7 @@ def main():
 
     now = datetime.now()
     current_time = now.strftime("%I:%M %p")
-    plt.text(0.89,0.94,current_time,color='white',fontfamily='Candara',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+    plt.text(0.89,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
     #show/save graphic
     plt.savefig("output/plot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
     #plt.show()
