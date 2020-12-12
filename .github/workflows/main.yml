@@ -1,6 +1,6 @@
 # .github/workflows/main.yml
 
-name: Trigger Netlify Build
+name: Trigger Netlify
 on:
   schedule:
     - cron: "*/1 * * * *"
@@ -8,5 +8,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Netlify
+      - name: Call Netlify Build Hook
         run: curl -s -X POST https://api.netlify.com/build_hooks/5fd4f45c6e0e2ef010090974
