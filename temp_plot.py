@@ -327,7 +327,7 @@ def main():
     current_time = now.strftime("%I:%M %p")
     plt.text(0.89,0.94,current_time,color='white',fontfamily='Candara',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
     #show/save graphic
-    plt.savefig("C:\\Users\\Evan\\Downloads\\AllStationsBarPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+    plt.savefig("output/plot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
     #plt.show()
 
 main()
