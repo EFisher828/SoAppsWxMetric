@@ -1,11 +1,11 @@
-# .github/workflows/main.yml
-
 name: Trigger Netlify
+
 on:
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: '*/1 * * * *'
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Call Netlify Build Hook
