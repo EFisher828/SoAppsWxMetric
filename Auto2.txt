@@ -1,0 +1,17 @@
+https://climate.ncsu.edu/cronos/?station=MITC35.7585-82.2712
+https://climate.ncsu.edu/cronos/?station=FLET35.4272-82.5588
+https://climate.ncsu.edu/cronos/?station=BEAR35.4613-82.3582
+https://climate.ncsu.edu/cronos/?station=FRYI35.3935-82.7742
+https://climate.ncsu.edu/cronos/?station=SPRU35.9011-82.0589
+https://climate.ncsu.edu/cronos/?station=SPIN35.3348-81.9125
+https://climate.ncsu.edu/cronos/?station=JEFF36.4033-81.4634
+https://climate.ncsu.edu/cronos/?station=LAUR36.4023-81.2971
+https://climate.ncsu.edu/cronos/?station=BURN35.9189-82.2603
+https://climate.ncsu.edu/cronos/?station=UNCA35.6223-82.5664
+https://climate.ncsu.edu/cronos/?station=FRYI35.3935-82.7742
+https://climate.ncsu.edu/cronos/?station=WAYN35.4875-82.9676
+https://climate.ncsu.edu/cronos/?station=SASS35.0652-82.7765
+https://climate.ncsu.edu/cronos/?station=WINE35.1731-83.5809
+https://climate.ncsu.edu/cronos/?station=KTNB36.2167-81.6745
+https://climate.ncsu.edu/cronos/?station=KFQD35.4282-81.9350
+https://climate.ncsu.edu/cronos/?station=KRHP35.1950-83.8638
