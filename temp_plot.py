@@ -3,7 +3,6 @@ import shapefile
 import urllib.request
 import matplotlib.pyplot as plt
 import matplotlib.patheffects as pe
-from mpl_toolkits.basemap import Basemap
 from matplotlib.patches import PathPatch
 from matplotlib.collections import LineCollection
 from matplotlib import cm
@@ -337,96 +336,5 @@ def main():
 
 main()
 
-def tempmap():
-    
-    fig = plt.figure(figsize=(12,9))
-    fig.patch.set_facecolor('grey')
-    ax  = fig.add_subplot(111)
-    ax.axis('off')
-    
-    map = Basemap(llcrnrlon=-84.4915,llcrnrlat=34.8466,urcrnrlon=-80.758,urcrnrlat=36.724,
-             resolution='i', epsg=4326)
-    map.arcgisimage(service='ESRI_Imagery_World_2D', xpixels = 2000, verbose= True, zorder=0)
-    map.readshapefile('WNC Counties Test', name='states', drawbounds=True, zorder=1, color='white')
-    #map.readshapefile('All Counties', name='counties', drawbounds=True, zorder=1, color='white',facecolor='white')
 
-    r = shapefile.Reader(r"Mask Counties")
-    shapes = r.shapes()
-    records = r.records()
-
-    for record, shape in zip(records,shapes):
-        lons,lats = zip(*shape.points)
-        data = np.array(map(lons, lats)).T
-
-        if len(shape.parts) == 1:
-            segs = [data,]
-        else:
-            segs = []
-            for i in range(1,len(shape.parts)):
-                index = shape.parts[i-1]
-                index2 = shape.parts[i]
-                segs.append(data[index:index2])
-            segs.append(data[index2:])
-
-        lines = LineCollection(segs,antialiaseds=(1,))
-        lines.set_facecolors('grey')
-        lines.set_edgecolors('grey')
-        lines.set_linewidth(3)
-        ax.add_collection(lines)
-
-    #Scrape data
-    SCOfile = open('Auto2.txt')
-    print('Collecting Data...\n\n')
-
-
-    plotdata = []
-    Latitude = []
-    Longitude = []
-    for line in SCOfile:
-        line_big = line[:-16]
-        Lat = (eval(line[45:52]))
-        Lon = (eval(line[52:60]))
-        Latitude.append(Lat)
-        Longitude.append(Lon)
-        url = line_big
-        html = urllib.request.urlopen(url)
-        soup = BeautifulSoup(html,features='html.parser')
-
-        try:
-
-            #A bunch of nonsense to isolate the temperature within the webpage's html
-            
-            Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
-            Tr = Table.split(',')
-
-            Temp_1 = str(Tr[4])
-            Temp_2 = Temp_1.split('<')
-            Temp_3 = str(Temp_2[9])
-            Temp_4 = Temp_3.split('>')
-            Temp_5 = str(Temp_4[1])
-            Temp_6 = Temp_5.split('°')
-            Temp_7 = str(Temp_6[0])
-            Temp_8 = Temp_7.strip(' ')
-            Temperature = eval(Temp_8)
-            plotdata.append(Temperature)
-
-        except:
-            print(line[41:]+" missing")
-
-            
-    message = 'Current Temperature\nWestern North Carolina'
-    message2 = 'Developed by Evan Fisher and Wes Grimes\nSource: NCSCO'
-    map.scatter(Longitude, Latitude, color='grey', s=1200, zorder=2)
-    map.scatter(Longitude, Latitude, c=plotdata, cmap='PuBuGn', s=1000, zorder=3)
-    plt.text(0.25,0.80, message,transform = ax.transAxes, ha='center', va='center', zorder=4, color='white', family='Candara', size=28)
-    plt.text(0.83,0.05, message2,transform = ax.transAxes, ha='center', va='center', zorder=4, color='white', family='Candara', size=10)
-    
-    labels = plotdata
-    for label, xpt, ypt in zip(labels, Longitude, Latitude):
-        plt.text(xpt, ypt, label, ha='center', va='center', color='white',path_effects=[pe.withStroke(linewidth=2, foreground="black")], family='Candara', size=16)
-
-    plt.savefig("output/mapplot.png",bbox_inches='tight',dpi=200,facecolor=fig.get_facecolor())
-    #plt.show()
-
-tempmap()
 
