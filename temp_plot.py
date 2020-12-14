@@ -339,7 +339,7 @@ main()
 
 def windbarb():
 
-    url = 'https://climate.ncsu.edu/cronos/?station=MITC'
+    url = 'https://climate.ncsu.edu/cronos/?station=grandfathr'
     html = urllib.request.urlopen(url)
     soup = BeautifulSoup(html,features='html.parser')
 
@@ -382,7 +382,7 @@ def windbarb():
     else:
         offset = 90 - Dir_4
         deg_direction = Dir_4 + 90 + 2*offset
-    rad_direction = math.radians(deg_direction)#+(math.pi/2)
+    rad_direction = math.radians(deg_direction)
     speed = Speed_4
     u = speed*math.cos(rad_direction)
     v = speed*math.sin(rad_direction)
@@ -398,7 +398,7 @@ def windbarb():
     plt.ylim(-0.8,0.8)
     plt.text(0,-0.6,Wind_Sum,ha='center',size=15,color='white')
     plt.text(0,-0.75,"Valid: " + Time_7,ha='center',size=15,color='white')
-    plt.text(0,0.75,'Current Winds on Mount Mitchell',color='white',size=20,weight='bold',ha='center')
+    plt.text(0,0.70,'Current Winds on Grandfather Mountain',color='white',size=19,weight='bold',ha='center')
 
     plt.savefig("output/barbplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
     
