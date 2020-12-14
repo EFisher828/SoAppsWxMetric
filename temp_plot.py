@@ -11,7 +11,7 @@ from datetime import datetime
 
 def main():
 
-    names = ('South Asheville 2060ft', 'Valle Crucis 2670ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'Sugar Mtn 5000ft', 'Beech Mtn 5050ft', 'Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft','Mt Mitchell #1 6600ft')
+    names = ('South Asheville 2060ft', 'Valle Crucis 2670ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'Sugar Mtn 5000ft', 'Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft','Mt Mitchell #1 6600ft')
     
     barnames = []
     Temperature = []
@@ -186,15 +186,15 @@ def main():
         i = i + 1
 
         #Beech Mountain 5300'
-        Area_1 = Map.split('<area')
-        Area_2 = str(Area_1[1])
-        Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        Temp_2 = str(Temp_1[1])
-        Temp_3 = Temp_2.split('°F')
-        Data = eval(Temp_3[0])
-        Temperature.append(Data)
-        barnames.append(names[i])
-        i = i + 1
+        #Area_1 = Map.split('<area')
+        #Area_2 = str(Area_1[1])
+        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
+        #Temp_2 = str(Temp_1[1])
+        #Temp_3 = Temp_2.split('°F')
+        #Data = eval(Temp_3[0])
+        #Temperature.append(Data)
+        #barnames.append(names[i])
+        #i = i + 1
 
     except:
         print("Sugar or Beech Missing")
