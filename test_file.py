@@ -1,3 +1,15 @@
+import numpy as np
+import math
+import shapefile
+import urllib.request
+import matplotlib.pyplot as plt
+import matplotlib.patheffects as pe
+from matplotlib.patches import PathPatch
+from matplotlib.collections import LineCollection
+from matplotlib import cm
+from bs4 import BeautifulSoup
+from datetime import datetime
+
 def vabar():
 
     names = ('Charlottesville 641ft','Lynchburg 938ft','Roanoke 1175ft','Waynesboro 1436ft','Blacksburg 2132ft','Hillsville 2693ft')
@@ -217,9 +229,9 @@ def vabar():
 
     now = datetime.now()
     current_time = now.strftime("%I:%M %p")
-    plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+    #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
     plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
-    plt.figtext(0.5,-0.2,"Developed by Evan Fisher and Wes Grimes",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+    plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
     plt.figtext(0.5,-0.2,"Developed by Evan Fisher and Wes Grimes",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
     #show/save graphic
     plt.savefig("output/vabarplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
