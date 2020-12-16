@@ -22,6 +22,14 @@ body {margin:0}
 	font-size:250%;
 	margin-top:0%;
 }
+#p2 {
+	text-align:center;
+	font-family:Candara;
+	color:white;
+	font-size:150%;
+	padding-left:5%;
+	padding-right:5%;
+}
 #p1 {
 	text-align:center;
 	font-family:Candara;
@@ -34,6 +42,12 @@ body {margin:0}
 	text-align: center;
 	margin: 0 auto;
 	background-color:rgba(255,255,255,0.7);
+}
+#divcenter2 {
+	width:67%;
+	text-align: center;
+	margin: 0 auto;
+	background-color:rgba(101,101,101,0.6);
 }
 #header_image {
 	background-image: url('header_image.jpg');
@@ -89,24 +103,23 @@ li a:hover:not(.active) {
 </script>
 </head>
 <body style="background-color:grey;height:100%">
-	<div style="background-image:url(headerimage.jpg);background-repeat: no-repeat;background-size: cover;height:350%;margin-bottom: 0px;margin-top:0px;">
+	<div style="background-image:url(headerimage.jpg);background-repeat: no-repeat;background-size: cover;height:250%;margin-bottom: 0px;margin-top:0px;">
 	<p id="header">Appalachian Weather</p>
 	<ul>
-  		<li><a class="active" href="index.html">Temperature</a></li>
+  		<li><a href="index.html">Temperature</a></li>
   		<li><a href="wind.html">Wind</a></li>
-  		<li><a href="about.html">About</a></li>
+  		<li><a class="active" href="about.html">About</a></li>
 	</ul>
-	<p id="header3">Temperature Plots</p>
-	<div>
-		<img src="wncbarplot.png"/>
-	</div>
-	<br /><br /><br />
-	<div>
-		<img src="piedmontbarplot.png"/>
-	</div>
-	<br /><br /><br />
-	<div>
-		<img src="vabarplot.png"/>
+	<p id="header3">About Appalachian Weather</p>
+	<div id="divcenter2">
+		<br />
+		<p id="p2">If you encounter product issues, or have ideas for new plots, we want to hear about it!</p>
+		<p id="p2">Products on <a style="color:white" href="https://www.appalachianwx.com/">AppalachianWx.com</a> are unique to the southern and central Appalachians. More products will be added with time, but if you have a special request please contact us using the information below.</p>
+		<br />
+		<p id="p2">Twitter (preferred): <a style="color:white" href="https://twitter.com/EFisherWX">@EFisher828</a> & <a style="color:white" href="https://twitter.com/wesgrimes">@wesgrimes</a></p>
+		<br />
+		<p id="p2">Email: evan.w.fisher@gmail.com</p>
+		<br />
 	</div>
 	</div>
 </body>

@@ -12,7 +12,7 @@ from datetime import datetime
 
 def wncbar():
 
-    names = ('South Asheville 2060ft', 'Valle Crucis 2670ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'Sugar Mtn 5000ft','Beech Mountain 5050ft','Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft','Mt Mitchell #1 6600ft')
+    names = ('South Asheville 2060ft', 'Valle Crucis 2670ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'Sugar Mtn 5000ft','Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft','Mt Mitchell #1 6600ft')
     
     barnames = []
     Temperature = []
@@ -187,15 +187,15 @@ def wncbar():
         i = i + 1
 
         #Beech Mountain 5300'
-        Area_1 = Map.split('<area')
-        Area_2 = str(Area_1[1])
-        Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        Temp_2 = str(Temp_1[1])
-        Temp_3 = Temp_2.split('°F')
-        Data = eval(Temp_3[0])
-        Temperature.append(Data)
-        barnames.append(names[i])
-        i = i + 1
+        #Area_1 = Map.split('<area')
+        #Area_2 = str(Area_1[1])
+        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
+        #Temp_2 = str(Temp_1[1])
+        #Temp_3 = Temp_2.split('°F')
+        #Data = eval(Temp_3[0])
+        #Temperature.append(Data)
+        #barnames.append(names[i])
+        #i = i + 1
 
     except:
         print("Sugar or Beech Missing")
@@ -381,6 +381,7 @@ def windbarb():
             plt.ylim(-0.8,0.8)
             plt.text(0,-0.6,Wind_Sum,ha='center',size=15,color='white')
             plt.text(0,-0.75,"Valid: " + Time_7,ha='center',size=15,color='white')
+            plt.text(0,-0.85,"Source: NCSCO",ha='center',size=12,color='white')
             plt.text(0,0.70,'Current Winds on Grandfather Mountain',color='white',size=19,weight='bold',ha='center')
         
             plt.savefig("output/barbplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
@@ -428,6 +429,7 @@ def windbarb():
             plt.ylim(-0.8,0.8)
             plt.text(0,-0.6,Wind_Sum,ha='center',size=15,color='white')
             plt.text(0,-0.75,"Valid: " + Time_7,ha='center',size=15,color='white')
+            plt.text(0,-0.87,"Source: NCSCO",ha='center',size=12,color='white')
             plt.text(0,0.70,'Current Winds on Grandfather Mountain',color='white',size=19,weight='bold',ha='center')
         
             plt.savefig("output/barbplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
