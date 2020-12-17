@@ -13,7 +13,7 @@ from datetime import datetime
 
 def wncbar():
 
-    names = ('South Asheville 2060ft', 'Valle Crucis 2670ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'Sugar Mtn 5000ft','Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft','Mt Mitchell #1 6600ft')
+    names = ('South Asheville 2060ft', 'Valle Crucis 2670ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'West Jefferson 4600ft','Sugar Mtn 5000ft','Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft','Mt Mitchell #1 6600ft')
     
     barnames = []
     Temperature = []
@@ -138,7 +138,7 @@ def wncbar():
         i = i + 1
 
 
-    #RaysWeather
+    #CRONOS
     url = 'https://climate.ncsu.edu/cronos/?station=BEAR'
     html = urllib.request.urlopen(url)
     soup = BeautifulSoup(html,features='html.parser')
@@ -164,7 +164,33 @@ def wncbar():
     except:
         print("BEAR missing")
         i = i + 1
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=JEFF'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
 
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature.append(Temp)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("JEFF missing")
+        i = i + 1
 
     #RaysWeather
     url = 'http://averyweather.com/'
