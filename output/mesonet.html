@@ -29,6 +29,14 @@ body {margin:0%}
 	font-size:150%;
 	padding-bottom:3%;
 }
+#p2 {
+	text-align:center;
+	font-family:Candara;
+	color:black;
+	font-size:100%;
+	padding-left:5%;
+	padding-right:5%;
+}
 #divcenter {
 	width:47%;
 	text-align: center;
@@ -88,23 +96,19 @@ li a:hover:not(.active) {
 </script>
 </head>
 <body style="background-color:grey;height:100%">
-	<div style="background-image:url(headerimage.jpg);background-repeat: no-repeat;background-size: cover;height:250%;margin-bottom: 0px;margin-top:0px;">
+	<div style="background-image:url(headerimage.jpg);background-repeat: no-repeat;background-size: cover;height:350%;margin-bottom: 0px;margin-top:0px;">
 	<p id="header">Appalachian Weather</p>
-	
 	<ul>
   		<li><a href="index.html">Temperature</a></li>
-  		<li><a href="mesonet.html">Mesonet</a></li>
-  		<li><a class="active" href="wind.html">Wind</a></li>
+  		<li><a class="active" href="mesonet.html">Mesonet</a></li>
+  		<li><a href="wind.html">Wind</a></li>
   		<li><a href="about.html">About</a></li>
 	</ul>
 	<br /><br /><br /><br />
-	<p id="header3">Wind Plots</p>
+	<p id="header3">Current Surface Observations</p>
+	<br /><br />
 	<div>
-		<img src="allbarbs.png" />
-	</div>
-	<br /><br /><br />
-	<div>
-		<img src="barbplot.png" />
+		<img src="https://ncscsurfaceobs.netlify.app/SoAppsSurfaceObs.png"/>
 	</div>
 	</div>
 </body>
