@@ -989,3 +989,219 @@ def vabar():
     #plt.show()
 
 vabar()
+
+def allbarbs():
+
+    Wind = []
+    u = []
+    v = []
+    x = []
+    y = []
+    q = 0
+    
+    url = 'https://climate.ncsu.edu/cronos/?station=flet'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind_Sum = Wind_5[1:]
+        Wind.append(Wind_5)
+        print(Wind_Sum)
+
+        Time_1 = str(Tr[3])
+        Time_2 = Time_1.split('<')
+        Time_3 = str(Time_2[0])
+        Time_4 = Time_3.split('@ ')
+        Time_5 = str(Time_4[1])
+        Time_6 = Time_5.split(' (')
+        Time_7 = str(Time_6[0])
+        print(Time_7)
+    except:
+        print("FLET missing")
+
+    url = 'https://climate.ncsu.edu/cronos/?station=ktnb'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind_Sum = Wind_5[1:]
+        Wind.append(Wind_5)
+        print(Wind_Sum)
+    except:
+        print("KTNB missing")
+
+    url = 'https://climate.ncsu.edu/cronos/?station=bear'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind_Sum = Wind_5[1:]
+        Wind.append(Wind_5)
+        print(Wind_Sum)
+    except:
+        print("BEAR missing")
+
+    url = 'https://climate.ncsu.edu/cronos/?station=grandfathr'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind_Sum = Wind_5[1:]
+        Wind.append(Wind_5)
+        print(Wind_Sum)
+    except:
+        print("Grandfathr missing")
+
+    url = 'https://climate.ncsu.edu/cronos/?station=mitc'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind_Sum = Wind_5[1:]
+        Wind.append(Wind_5)
+        print(Wind_Sum)
+    except:
+        print("MITC missing")
+
+    print(Wind)
+        
+    for i in Wind:
+        if Wind[q] == ' Calm ':
+            print("in calm")
+            u.append(1)
+            v.append(1)
+            x.append(0)
+            y.append(q)
+            print(u)
+            print(v)
+            q = q + 1
+
+        elif Wind[q] == ' Calm with gusts of 2 mph ':
+            print("in calm")
+            u.append(1)
+            v.append(1)
+            x.append(0)
+            y.append(q)
+            print(u)
+            print(v)
+            q = q + 1
+
+        elif Wind[q] == ' Calm with gusts of 1 mph ':
+            print("in calm")
+            u.append(1)
+            v.append(1)
+            x.append(0)
+            y.append(q)
+            print(u)
+            print(v)
+            q = q + 1
+
+        elif Wind[q] == ' Calm with gusts of 0 mph ':
+            print("in calm")
+            u.append(1)
+            v.append(1)
+            x.append(0)
+            y.append(q)
+            print(u)
+            print(v)
+            q = q + 1
+
+        else:
+            print("in not calm")
+            Dir_1 = Wind[q].split('(')
+            Dir_2 = str(Dir_1[1])
+            Dir_3 = Dir_2.split('°')
+            Dir_4 = eval(Dir_3[0])
+            print(Dir_4)
+            Speed_1 = Wind[q].split('at ')
+            Speed_2 = str(Speed_1[1])
+            Speed_3 = Speed_2.split(' mph')
+            Speed_4 = eval(Speed_3[0])
+
+            if Dir_4 < 90:
+                offset = 90 - Dir_4
+                deg_direction = Dir_4 + 90 + 2*offset
+            else:
+                offset = 90 - Dir_4
+                
+            deg_direction = Dir_4 + 90 + 2*offset
+            rad_direction = math.radians(deg_direction)
+            speed = Speed_4
+            u.append(speed*math.cos(rad_direction))
+            v.append(speed*math.sin(rad_direction))
+            x.append(0)
+            y.append(q)
+            print(u)
+            print(v)
+            q = q + 1
+        
+    
+    fig = plt.figure(figsize=(8,8))
+    fig.patch.set_facecolor('grey')
+    ax = plt.axes()
+    ax.set_facecolor('grey')
+    ax.axis('off')
+    ax.barbs(x,y,u,v, length=8, pivot='middle',color='white')
+    plt.xlim(-8,2.5)
+    plt.ylim(-0.5,5)
+    plt.text(-4.8,-0.1,"South Asheville 2060ft",ha='center',size=15,color='white')
+    plt.text(-4.8,0.9,"Boone 2980ft",ha='center',size=15,color='white')
+    plt.text(-4.8,1.9,"Bearwallow Mtn 4200ft",ha='center',size=15,color='white')
+    plt.text(-4.8,2.9,"Grandfather Mtn 5280ft",ha='center',size=15,color='white')
+    plt.text(-4.8,3.9,"Mount Mitchell 6200ft",ha='center',size=15,color='white')
+    plt.text(-3,-0.7,"Valid: " + Time_7 + "     " + "Source: NCSCO",ha='center',size=12,color='white')
+    plt.text(-3,4.65,'Current Wind Speeds across Western NC',color='white',size=20,weight='bold',ha='center')
+
+    rect = patches.Rectangle((-7.8,-0.4),9.8,4.7,linewidth=1,edgecolor='white',facecolor='none')
+    ax.add_patch(rect)
+
+        
+    plt.savefig("output/allbarbs.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+
+
+allbarbs()
