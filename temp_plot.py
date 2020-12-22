@@ -1111,7 +1111,8 @@ def allbarbs():
     print(Wind)
         
     for i in Wind:
-        if Wind[q] == ' Calm ':
+        temp_wind = str(Wind[q])
+        if temp_wind[:5] == ' Calm':
             print("in calm")
             u.append(1)
             v.append(1)
@@ -1121,34 +1122,42 @@ def allbarbs():
             print(v)
             q = q + 1
 
-        elif Wind[q] == ' Calm with gusts of 2 mph ':
-            print("in calm")
-            u.append(1)
-            v.append(1)
-            x.append(0)
-            y.append(q)
-            print(u)
-            print(v)
-            q = q + 1
+        #elif Wind[q] == ' Calm with gusts of 2 mph ':
+         #   print("in calm")
+          #  u.append(1)
+           # v.append(1)
+            #x.append(0)
+            #y.append(q)
+            #print(u)
+            #print(v)
+            #q = q + 1
 
-        elif Wind[q] == ' Calm with gusts of 1 mph ':
-            print("in calm")
-            u.append(1)
-            v.append(1)
-            x.append(0)
-            y.append(q)
-            print(u)
-            print(v)
-            q = q + 1
+        #elif Wind[q] == ' Calm with gusts of 1 mph ':
+            #print("in calm")
+            #u.append(1)
+            #v.append(1)
+            #x.append(0)
+            #y.append(q)
+            #print(u)
+            #print(v)
+            #q = q + 1
 
-        elif Wind[q] == ' Calm with gusts of 0 mph ':
-            print("in calm")
+        #elif Wind[q] == ' Calm with gusts of 0 mph ':
+            #print("in calm")
+            #u.append(1)
+            #v.append(1)
+            #x.append(0)
+            #y.append(q)
+            #print(u)
+            #print(v)
+            #q = q + 1
+
+        elif temp_wind[6:8] == '°F':
+            print("Somehow got temp with " + temp_wind)
             u.append(1)
             v.append(1)
             x.append(0)
             y.append(q)
-            print(u)
-            print(v)
             q = q + 1
 
         else:
