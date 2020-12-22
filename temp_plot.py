@@ -248,9 +248,13 @@ def wncbar():
         Temp_7 = str(Temp_6[0])
         Temp_8 = Temp_7.strip(' ')
         Temp = eval(Temp_8)
-        Temperature.append(Temp)
-        barnames.append(names[i])
-        i = i + 1
+        if Temp > (-20):
+            Temperature.append(Temp)
+            barnames.append(names[i])
+            i = i + 1
+        else:
+            print("Grandfathr data issues")
+            i = i + 1
 
     except:
         print("Grandfathr missing")
