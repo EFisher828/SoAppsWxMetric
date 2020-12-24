@@ -377,6 +377,341 @@ def wncbar():
         plt.savefig("output/wncbarplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
 
 wncbar()
+def windchill():
+
+    names = ('Asheville\n2067ft', 'Boone\n2987ft', 'Bearwallow Mtn\n4219ft', 'Grandfather Mtn\n5280ft', 'Mt Mitchell\n6200ft')
+
+    barnames = []
+    Temperature = []
+    plotdata = []
+    windchill = []
+    speed = []
+    d = 0
+    i = 0
+
+    
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=FLET'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature = Temp
+        barnames.append(names[i])
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind = Wind_5[1:]
+        print(Wind)
+
+        if Wind[:5] == 'Calm ':
+            speed.append(0)
+        elif Wind[6:8] == '°F':
+            speed.append(0)
+        else:
+            Speed_1 = Wind.split('at ')
+            Speed_2 = str(Speed_1[1])
+            Speed_3 = Speed_2.split(' mph')
+            Speed_4 = eval(Speed_3[0])
+            speed.append(Speed_4)
+            
+        plotdata.append(Temperature)
+        print(plotdata)
+        print(speed)
+        i = i + 1
+
+    except:
+        print("FLET missing")
+        i = i + 1
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=KTNB'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature = Temp
+        barnames.append(names[i])
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind = Wind_5[1:]
+        print(Wind)
+
+        if Wind[:5] == 'Calm ':
+            speed.append(0)
+        elif Wind[6:8] == '°F':
+            speed.append(0)
+        else:
+            Speed_1 = Wind.split('at ')
+            Speed_2 = str(Speed_1[1])
+            Speed_3 = Speed_2.split(' mph')
+            Speed_4 = eval(Speed_3[0])
+            speed.append(Speed_4)
+            
+        plotdata.append(Temperature)
+        print(plotdata)
+        print(speed)
+        i = i + 1
+
+    except:
+        print("KTNB missing")
+        i = i + 1
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=BEAR'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature = Temp
+        barnames.append(names[i])
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind = Wind_5[1:]
+        print(Wind)
+
+        if Wind[:5] == 'Calm ':
+            speed.append(0)
+        elif Wind[6:8] == '°F':
+            speed.append(0)
+        else:
+            Speed_1 = Wind.split('at ')
+            Speed_2 = str(Speed_1[1])
+            Speed_3 = Speed_2.split(' mph')
+            Speed_4 = eval(Speed_3[0])
+            speed.append(Speed_4)
+            
+        plotdata.append(Temperature)
+        print(plotdata)
+        print(speed)
+        i = i + 1
+
+    except:
+        print("BEAR missing")
+        i = i + 1
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=grandfathr'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature = Temp
+        barnames.append(names[i])
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind = Wind_5[1:]
+        print(Wind)
+
+        if Wind[:5] == 'Calm ':
+            speed.append(0)
+        elif Wind[6:8] == '°F':
+            speed.append(0)
+        else:
+            Speed_1 = Wind.split('at ')
+            Speed_2 = str(Speed_1[1])
+            Speed_3 = Speed_2.split(' mph')
+            Speed_4 = eval(Speed_3[0])
+            speed.append(Speed_4)
+            
+        plotdata.append(Temperature)
+        print(plotdata)
+        print(speed)
+        i = i + 1
+
+    except:
+        print("Grandfathr missing")
+        i = i + 1
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=MITC'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature = Temp
+        barnames.append(names[i])
+        Wind_1 = str(Tr[6])
+        Wind_2 = Wind_1.split('<')
+        Wind_3 = str(Wind_2[9])
+        Wind_4 = Wind_3.split('>')
+        Wind_5 = str(Wind_4[1])
+        Wind = Wind_5[1:]
+        print(Wind)
+
+        if Wind[:5] == 'Calm ':
+            speed.append(0)
+        elif Wind[6:8] == '°F':
+            speed.append(0)
+        else:
+            Speed_1 = Wind.split('at ')
+            Speed_2 = str(Speed_1[1])
+            Speed_3 = Speed_2.split(' mph')
+            Speed_4 = eval(Speed_3[0])
+            speed.append(Speed_4)
+            
+        plotdata.append(Temperature)
+        print(plotdata)
+        print(speed)
+        i = i + 1
+
+    except:
+        print("MITC missing")
+        i = i + 1
+
+    for w in plotdata:
+        if speed[d] < 3:
+            windchill.append(plotdata[d])
+            print(windchill)
+            d = d + 1
+        elif plotdata[d] >= 50:
+            windchill.append(plotdata[d])
+            print(windchill)
+            d = d + 1
+        else:
+            chill = 35.74 + (0.6215*plotdata[d]) - (35.75*(speed[d]**0.16)) + ((0.4275*plotdata[d])*(speed[d]**0.16))
+            fin_chill = round(chill,1)
+            windchill.append(fin_chill)
+            d = d + 1
+            print(windchill)
+
+    fig = plt.figure()
+    fig.patch.set_facecolor('grey')
+    ax = plt.axes()
+    ax.set_facecolor('grey')
+    
+    # Make fake dataset
+    height = windchill
+    #height = (38.1,30.7,41.5,45,47.7)
+    #bars = ('Asheville\n2067ft', 'Boone\n2987ft', 'Bearwallow Mtn\n4219ft', 'Grandfather Mtn\n5280ft', 'Mt Mitchell\n6200ft')
+    bars = barnames
+    y_pos = np.arange(len(bars))
+
+    #Max/mins & fonts
+    maximum = max(height)+3
+    minimum = min(height)-3
+    font = {'fontname':'Candara','size':16,'color':'white'}
+
+    #Color
+    color_1 = np.array(height)
+    #print(color_1 / float(max(color_1)))
+    color_2 = cm.twilight(1-(color_1 /float(max(color_1))))#50
+    ax.xaxis.label.set_color('white')
+    ax.spines['bottom'].set_color('white')
+    ax.spines['top'].set_color('white') 
+    ax.spines['right'].set_color('white')
+    ax.spines['left'].set_color('white')
+    ax.tick_params(axis='x', colors='white')
+    ax.tick_params(axis='y', colors='white')
+ 
+    # Create horizontal bars
+    plt.barh(y_pos, height, color = color_2)
+ 
+    # Create names on the y-axis
+    plt.yticks(y_pos, bars, **font)
+
+    #Axis
+    plt.xlim(minimum,maximum)
+
+    #Label
+    plt.xlabel('Temperature (°F)',**font)
+
+    font2 = {'size':22,'color':'white'}
+    
+    for i, v in enumerate(height):
+        if height[i] >= 0:
+            plt.text(v , i-0.1, str(v), color='white', fontsize='13')
+        if height[i] < 0:
+            plt.text(v-4 , i-0.1, str(v), color='white', fontsize='13')
+
+    now = datetime.now()
+    current_time = now.strftime("%I:%M %p")
+    plt.title('Mountains, NC\nWind Chill Profile', **font2)
+    plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+    plt.text(-0.27,1.05,"Valid: " + str(current_time),color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+    plt.figtext(0.5,-0.2,"AppalachianWX.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+
+    
+    # Show graphic
+    plt.savefig("output/wncwindchill.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+
+windchill()
 
 
 def windbarb():
