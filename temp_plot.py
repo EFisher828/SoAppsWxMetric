@@ -691,7 +691,7 @@ def windchill():
     plt.xlim(minimum,maximum)
 
     #Label
-    plt.xlabel('Temperature (°F)',**font)
+    plt.xlabel('Wind Chill (°F)',**font)
 
     font2 = {'size':22,'color':'white'}
     
