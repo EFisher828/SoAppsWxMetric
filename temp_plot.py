@@ -13,7 +13,7 @@ from datetime import datetime
 
 def wncbar():
 
-    names = ('South Asheville 2060ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'West Jefferson 4600ft','Sugar Mtn 5000ft','Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft','Mt Mitchell #1 6600ft')#'Valle Crucis 2670ft',
+    names = ('South Asheville 2060ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'West Jefferson 4600ft','Sugar Mtn 5000ft','Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft')#'Valle Crucis 2670ft',,'Mt Mitchell #1 6600ft
     
     barnames = []
     Temperature = []
@@ -290,28 +290,28 @@ def wncbar():
 
 
     #NCHighPeaks
-    url = 'https://nchighpeaks.org/davis/index.html'
-    html = urllib.request.urlopen(url)
-    soup = BeautifulSoup(html,features='html.parser')
+    #url = 'https://nchighpeaks.org/davis/index.html'
+    #html = urllib.request.urlopen(url)
+    #soup = BeautifulSoup(html,features='html.parser')
 
-    try:
+    #try:
             
-        Table = str(soup.find('table').find_all('tr'))
-        Tr = Table.split(',')
+        #Table = str(soup.find('table').find_all('tr'))
+        #Tr = Table.split(',')
 
-        Temp_1 = str(Tr[0])
-        Temp_2 = Temp_1.split('<td class="stats_data">')
-        Temp_3 = str(Temp_2[1])
-        Temp_4 = Temp_3.split('°F')
-        Temp_5 = str(Temp_4[0])
-        Temp = eval(Temp_5)
-        Temperature.append(Temp)
-        barnames.append(names[i])
-        i = i + 1
+        #Temp_1 = str(Tr[0])
+        #Temp_2 = Temp_1.split('<td class="stats_data">')
+        #Temp_3 = str(Temp_2[1])
+        #Temp_4 = Temp_3.split('°F')
+        #Temp_5 = str(Temp_4[0])
+        #Temp = eval(Temp_5)
+        #Temperature.append(Temp)
+        #barnames.append(names[i])
+        #i = i + 1
 
-    except:
-        print("Mitchell Top missing")
-        i = i + 1
+    #except:
+        #print("Mitchell Top missing")
+        #i = i + 1
 
     print(Temperature)
 
@@ -356,7 +356,14 @@ def wncbar():
         plt.xlabel('Temperature (°F)',**font)
 
         for i, v in enumerate(height):
-            plt.text(v , i-0.1, str(v), color='white', fontsize='13')
+            temp_height = height[i]
+            len_finder = len(str(temp_height))
+            if temp_height >= 0:
+                plt.text(v , i-0.1, str(v), color='white', fontsize='13')
+            elif temp_height < 0 and len_finder < 5:
+                plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
+            elif temp_height < 0 and len_finder >= 5:
+                plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
         plt.title('Mountains, NC\nVertical Temperature Profile', **font2)
 
         now = datetime.now()
