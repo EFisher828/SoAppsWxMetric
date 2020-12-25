@@ -696,10 +696,14 @@ def windchill():
     font2 = {'size':22,'color':'white'}
     
     for i, v in enumerate(height):
-        if height[i] >= 0:
+        temp_height = height[i]
+        len_finder = len(str(temp_height))
+        if temp_height >= 0:
             plt.text(v , i-0.1, str(v), color='white', fontsize='13')
-        if height[i] < 0:
-            plt.text(v-2 , i-0.1, str(v), color='white', fontsize='13')
+        elif temp_height < 0 and len_finder < 5:
+            plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
+        elif temp_height < 0 and len_finder >= 5:
+            plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
 
     now = datetime.now()
     current_time = now.strftime("%I:%M %p")
