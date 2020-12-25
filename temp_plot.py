@@ -698,7 +698,7 @@ def windchill():
         if height[i] >= 0:
             plt.text(v , i-0.1, str(v), color='white', fontsize='13')
         if height[i] < 0:
-            plt.text(v-4 , i-0.1, str(v), color='white', fontsize='13')
+            plt.text(v-2 , i-0.1, str(v), color='white', fontsize='13')
 
     now = datetime.now()
     current_time = now.strftime("%I:%M %p")
