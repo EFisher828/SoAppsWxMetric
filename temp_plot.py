@@ -327,8 +327,8 @@ def wncbar():
 
     #max/mins & fonts
     if len(height) > 0:
-        maximum = max(height)+3
-        minimum = min(height)-3
+        maximum = max(height)+5
+        minimum = min(height)-5
         font = {'size':16,'color':'white'}
         font2 = {'size':22,'color':'white'}
 
@@ -672,14 +672,21 @@ def windchill():
     y_pos = np.arange(len(bars))
 
     #Max/mins & fonts
-    maximum = max(height)+3
-    minimum = min(height)-3
-    font = {'fontname':'Candara','size':16,'color':'white'}
+    maximum = max(height)+5
+    minimum = min(height)-5
+    font = {'size':16,'color':'white'}
 
     #Color
-    color_1 = np.array(height)
-    #print(color_1 / float(max(color_1)))
-    color_2 = cm.twilight(1-(abs(color_1) /float(max(color_1))))#50
+    mute_height = []
+    k = 0
+    if min(height) < 0:
+        for i in height:
+            new_val = height[k] + abs(min(height))
+            mute_height.append(new_val)
+            k = k + 1
+    print(mute_height)
+    color_1 = np.array(mute_height)
+    color_2 = cm.cool(1-(color_1 /float(max(color_1))))#50
     ax.xaxis.label.set_color('white')
     ax.spines['bottom'].set_color('white')
     ax.spines['top'].set_color('white') 
@@ -708,9 +715,9 @@ def windchill():
         if temp_height >= 0:
             plt.text(v , i-0.1, str(v), color='white', fontsize='13')
         elif temp_height < 0 and len_finder < 5:
-            plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
+            plt.text(v-2.9 , i-0.1, str(v), color='white', fontsize='13')
         elif temp_height < 0 and len_finder >= 5:
-            plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
+            plt.text(v-3.8 , i-0.1, str(v), color='white', fontsize='13')
 
     now = datetime.now()
     current_time = now.strftime("%I:%M %p")
