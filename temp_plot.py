@@ -377,6 +377,7 @@ def wncbar():
         plt.savefig("output/wncbarplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
 
 wncbar()
+
 def windchill():
 
     names = ('Asheville\n2067ft', 'Boone\n2987ft', 'Bearwallow Mtn\n4219ft', 'Grandfather Mtn\n5280ft', 'Mt Mitchell\n6200ft')
@@ -671,7 +672,7 @@ def windchill():
     #Color
     color_1 = np.array(height)
     #print(color_1 / float(max(color_1)))
-    color_2 = cm.twilight(1-(color_1 /float(max(color_1))))#50
+    color_2 = cm.twilight(1-(abs(color_1) /float(max(color_1))))#50
     ax.xaxis.label.set_color('white')
     ax.spines['bottom'].set_color('white')
     ax.spines['top'].set_color('white') 
