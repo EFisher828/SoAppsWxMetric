@@ -684,6 +684,8 @@ def windchill():
             new_val = height[k] + abs(min(height))
             mute_height.append(new_val)
             k = k + 1
+    else:
+        mute_height = height
     print(mute_height)
     color_1 = np.array(mute_height)
     color_2 = cm.cool(1-(color_1 /float(max(color_1))))#50
