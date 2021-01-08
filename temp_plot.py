@@ -13,7 +13,7 @@ from datetime import datetime
 
 def wncbar():
 
-    names = ('South Asheville 2060ft', 'Boone 2980ft', 'Linville 3650ft', 'Seven Devils 3940ft', 'Bearwallow Mtn 4200ft', 'West Jefferson 4600ft','Sugar Mtn 5000ft','Grandfather Mtn 5280ft','Mt Mitchell #2 6200ft')#'Valle Crucis 2670ft',,'Mt Mitchell #1 6600ft
+    names = ('South Asheville 2060ft', 'Boone 2980ft', 'Bearwallow Mtn 4200ft', 'West Jefferson 4600ft','Grandfather Mtn 5280ft','Mt Mitchell 6200ft')#'Valle Crucis 2670ft',,'Mt Mitchell #1 6600ft 'Linville 3650ft', 'Seven Devils 3940ft', ,'Sugar Mtn 5000ft'
     
     barnames = []
     Temperature = []
@@ -102,40 +102,40 @@ def wncbar():
 
 
     #RaysWeather
-    url = 'http://averyweather.com/'
-    html = urllib.request.urlopen(url)
-    soup = BeautifulSoup(html,features='html.parser')
-    Map = str(soup.find('map', {"name":"cc"}))
+    #url = 'http://averyweather.com/'
+    #html = urllib.request.urlopen(url)
+    #soup = BeautifulSoup(html,features='html.parser')
+    #Map = str(soup.find('map', {"name":"cc"}))
 
     
-    try:
+    #try:
 
 
         #Linville 3655'
-        Area_1 = Map.split('<area')
-        Area_2 = str(Area_1[5])
-        Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        Temp_2 = str(Temp_1[1])
-        Temp_3 = Temp_2.split('°F')
-        Data = eval(Temp_3[0])
-        Temperature.append(Data)
-        barnames.append(names[i])
-        i = i + 1
+        #Area_1 = Map.split('<area')
+        #Area_2 = str(Area_1[5])
+        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
+        #Temp_2 = str(Temp_1[1])
+        #Temp_3 = Temp_2.split('°F')
+        #Data = eval(Temp_3[0])
+        #Temperature.append(Data)
+        #barnames.append(names[i])
+        #i = i + 1
 
         #Seven Devils 3944'
-        Area_1 = Map.split('<area')
-        Area_2 = str(Area_1[11])
-        Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        Temp_2 = str(Temp_1[1])
-        Temp_3 = Temp_2.split('°F')
-        Data = eval(Temp_3[0])
-        Temperature.append(Data)
-        barnames.append(names[i])
-        i = i + 1
+        #Area_1 = Map.split('<area')
+        #Area_2 = str(Area_1[11])
+        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
+        #Temp_2 = str(Temp_1[1])
+        #Temp_3 = Temp_2.split('°F')
+        #Data = eval(Temp_3[0])
+        #Temperature.append(Data)
+        #barnames.append(names[i])
+        #i = i + 1
 
-    except:
-        print("Linville or Seven Devils Missing")
-        i = i + 1
+    #except:
+        #print("Linville or Seven Devils Missing")
+        #i = i + 1
 
 
     #CRONOS
@@ -193,25 +193,25 @@ def wncbar():
         i = i + 1
 
     #RaysWeather
-    url = 'http://averyweather.com/'
-    html = urllib.request.urlopen(url)
-    soup = BeautifulSoup(html,features='html.parser')
-    Map = str(soup.find('map', {"name":"cc"}))
+    #url = 'http://averyweather.com/'
+    #html = urllib.request.urlopen(url)
+    #soup = BeautifulSoup(html,features='html.parser')
+    #Map = str(soup.find('map', {"name":"cc"}))
 
     
-    try:
+    #try:
 
 
         #Sugar Mountain 5000'
-        Area_1 = Map.split('<area')
-        Area_2 = str(Area_1[7])
-        Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        Temp_2 = str(Temp_1[1])
-        Temp_3 = Temp_2.split('°F')
-        Data = eval(Temp_3[0])
-        Temperature.append(Data)
-        barnames.append(names[i])
-        i = i + 1
+        #Area_1 = Map.split('<area')
+        #Area_2 = str(Area_1[7])
+        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
+        #Temp_2 = str(Temp_1[1])
+        #Temp_3 = Temp_2.split('°F')
+        #Data = eval(Temp_3[0])
+        #Temperature.append(Data)
+        #barnames.append(names[i])
+        #i = i + 1
 
         #Beech Mountain 5300'
         #Area_1 = Map.split('<area')
@@ -224,9 +224,9 @@ def wncbar():
         #barnames.append(names[i])
         #i = i + 1
 
-    except:
-        print("Sugar or Beech Missing")
-        i = i + 1
+    #except:
+        #print("Sugar or Beech Missing")
+        #i = i + 1
 
         
     #CRONOS
@@ -248,6 +248,7 @@ def wncbar():
         Temp_7 = str(Temp_6[0])
         Temp_8 = Temp_7.strip(' ')
         Temp = eval(Temp_8)
+        print("MITC - " + str(Temp))
         if Temp > (-20):
             Temperature.append(Temp)
             barnames.append(names[i])
@@ -280,6 +281,7 @@ def wncbar():
         Temp_7 = str(Temp_6[0])
         Temp_8 = Temp_7.strip(' ')
         Temp = eval(Temp_8)
+        print("MITC - " + str(Temp))
         Temperature.append(Temp)
         barnames.append(names[i])
         i = i + 1
