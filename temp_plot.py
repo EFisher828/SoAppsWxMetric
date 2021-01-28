@@ -13,7 +13,7 @@ from datetime import datetime
 
 def wncbar():
 
-    names = ('South Asheville 2060ft', 'Boone 2980ft', 'Bearwallow Mtn 4200ft', 'West Jefferson 4600ft','Grandfather Mtn 5280ft','Mt Mitchell 6200ft')#'Valle Crucis 2670ft',,'Mt Mitchell #1 6600ft 'Linville 3650ft', 'Seven Devils 3940ft', ,'Sugar Mtn 5000ft'
+    names = ('South Asheville 2060ft','Boone 2980ft', 'Bearwallow Mtn 4200ft', 'Mt Jefferson 4600ft','Grandfather Mtn 5280ft','Mt Mitchell 6200ft')#'Valle Crucis 2670ft',,'Mt Mitchell #1 6600ft 'Linville 3650ft', 'Seven Devils 3940ft', ,'Sugar Mtn 5000ft', 'Valle Crucis 2670ft'
     
     barnames = []
     Temperature = []
@@ -58,19 +58,19 @@ def wncbar():
     #try:
 
         #Valle Crucis 2677'
-        #Area_1 = Map.split('<area')
-        #Area_2 = str(Area_1[3])
-        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        #Temp_2 = str(Temp_1[1])
-        #Temp_3 = Temp_2.split('°F')
-        #Data = eval(Temp_3[0])
-        #Temperature.append(Data)
-        #barnames.append(names[i])
-        #i = i + 1
+     #   Area_1 = Map.split('<area')
+     #   Area_2 = str(Area_1[3])
+     #   Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
+     #   Temp_2 = str(Temp_1[1])
+     #   Temp_3 = Temp_2.split('°F')
+     #   Data = eval(Temp_3[0])
+     #   Temperature.append(Data)
+     #   barnames.append(names[i])
+     #   i = i + 1
 
     #except:
-        #print("Valle Crucis Missing")
-        #i = i + 1
+     #   print("Valle Crucis Missing")
+     #  i = i + 1
 
 
     #CRONOS
