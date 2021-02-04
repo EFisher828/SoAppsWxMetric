@@ -1576,3 +1576,499 @@ def allbarbs():
 
 
 allbarbs()
+
+def SwNcTemp():
+
+    names = ('Andrews 1697ft','Franklin 2020ft', 'Waynesville 2755ft', 'Bearwallow Mtn 4219ft','Frying Pan Mtn 5320ft','Wayah Bald 5469ft')#'Valle Crucis 2670ft',,'Mt Mitchell #1 6600ft 'Linville 3650ft', 'Seven Devils 3940ft', ,'Sugar Mtn 5000ft'
+    
+    barnames = []
+    Temperature = []
+    Elevation = []
+    i = 0
+
+    
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=KRHP'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature.append(Temp)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("FLET missing")
+        i = i + 1
+
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=K1A5'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature.append(Temp)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("KTNB missing")
+        i = i + 1
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=WAYN'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature.append(Temp)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("BEAR missing")
+        i = i + 1
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=BEAR'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature.append(Temp)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("JEFF missing")
+        i = i + 1
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=FRYI'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature.append(Temp)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("Grandfathr missing")
+        i = i + 1
+
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=WINE'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Temp_1 = str(Tr[4])
+        Temp_2 = Temp_1.split('<')
+        Temp_3 = str(Temp_2[9])
+        Temp_4 = Temp_3.split('>')
+        Temp_5 = str(Temp_4[1])
+        Temp_6 = Temp_5.split('°')
+        Temp_7 = str(Temp_6[0])
+        Temp_8 = Temp_7.strip(' ')
+        Temp = eval(Temp_8)
+        Temperature.append(Temp)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("MITC missing")
+        i = i + 1
+    print(Temperature)
+
+    fig = plt.figure()
+    fig.patch.set_facecolor('grey')
+    ax = plt.axes()
+    ax.set_facecolor('grey')
+    
+    #data and bar names
+    height = Temperature
+    bars = barnames
+    y_pos = np.arange(len(bars))
+
+    #max/mins & fonts
+    if len(height) > 0:
+        maximum = max(height)+5
+        minimum = min(height)-5
+        font = {'size':16,'color':'white'}
+        font2 = {'size':22,'color':'white'}
+
+    #color
+        color_1 = np.array(height)
+        color_2 = cm.cool_r((color_1 / float(max(color_1))))
+        ax.xaxis.label.set_color('white')
+        ax.spines['bottom'].set_color('white')
+        ax.spines['top'].set_color('white') 
+        ax.spines['right'].set_color('white')
+        ax.spines['left'].set_color('white')
+        ax.tick_params(axis='x', colors='white')
+        ax.tick_params(axis='y', colors='white')
+ 
+    #horizontal bars
+        plt.barh(y_pos, height, color = color_2)
+ 
+    #y-axis names
+        plt.yticks(y_pos, bars, **font)
+
+    #x-axis
+        plt.xlim(minimum,maximum)
+
+    #x label
+        plt.xlabel('Temperature (°F)',**font)
+
+        for i, v in enumerate(height):
+            temp_height = height[i]
+            len_finder = len(str(temp_height))
+            if temp_height >= 0:
+                plt.text(v , i-0.1, str(v), color='white', fontsize='13')
+            elif temp_height < 0 and len_finder < 5:
+                plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
+            elif temp_height < 0 and len_finder >= 5:
+                plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
+        plt.title('Mountains, NC\nVertical Temperature Profile', **font2)
+
+        now = datetime.now()
+        current_time = now.strftime("%I:%M %p")
+        #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.figtext(0.5,-0.2,"AppalachianWX.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+        #show/save graphic
+        plt.savefig("output/SwNcTempPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+        #plt.show()
+    elif len(height) == 0:
+        fig = plt.figure()
+        fig.patch.set_facecolor('grey')
+        ax = plt.axes()
+        ax.set_facecolor('grey')
+        plt.text(0.5,0.5,"All Stations Down",color='white',size=22,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.savefig("output/SwNcTempPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+
+SwNcTemp()
+
+def SwNcHumidity():
+
+    names = ('Andrews 1697ft','Franklin 2020ft', 'Waynesville 2755ft', 'Bearwallow Mtn 4219ft','Frying Pan Mtn 5320ft','Wayah Bald 5469ft')#'Valle Crucis 2670ft',,'Mt Mitchell #1 6600ft 'Linville 3650ft', 'Seven Devils 3940ft', ,'Sugar Mtn 5000ft'
+    
+    barnames = []
+    Temperature = []
+    Elevation = []
+    i = 0
+
+    
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=KRHP'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("FLET missing")
+        i = i + 1
+
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=K1A5'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("KTNB missing")
+        i = i + 1
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=WAYN'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("BEAR missing")
+        i = i + 1
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=BEAR'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("JEFF missing")
+        i = i + 1
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=FRYI'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("Grandfathr missing")
+        i = i + 1
+
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=WINE'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("MITC missing")
+        i = i + 1
+    print(Temperature)
+
+    fig = plt.figure()
+    fig.patch.set_facecolor('grey')
+    ax = plt.axes()
+    ax.set_facecolor('grey')
+    
+    #data and bar names
+    height = Temperature
+    bars = barnames
+    y_pos = np.arange(len(bars))
+
+    #max/mins & fonts
+    if len(height) > 0:
+        maximum = 110
+        minimum = 0
+        font = {'size':16,'color':'white'}
+        font2 = {'size':22,'color':'white'}
+
+    #color
+        color_1 = np.array(height)
+        color_2 = cm.YlGn((color_1 / float(max(color_1))))
+        ax.xaxis.label.set_color('white')
+        ax.spines['bottom'].set_color('white')
+        ax.spines['top'].set_color('white') 
+        ax.spines['right'].set_color('white')
+        ax.spines['left'].set_color('white')
+        ax.tick_params(axis='x', colors='white')
+        ax.tick_params(axis='y', colors='white')
+ 
+    #horizontal bars
+        plt.barh(y_pos, height, color = color_2)
+ 
+    #y-axis names
+        plt.yticks(y_pos, bars, **font)
+
+    #x-axis
+        plt.xlim(minimum,maximum)
+
+    #x label
+        plt.xlabel('Relative Humidity (%)',**font)
+
+        for i, v in enumerate(height):
+            temp_height = height[i]
+            len_finder = len(str(temp_height))
+            if temp_height >= 0:
+                plt.text(v , i-0.1, str(v), color='white', fontsize='13')
+            elif temp_height < 0 and len_finder < 5:
+                plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
+            elif temp_height < 0 and len_finder >= 5:
+                plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
+        plt.title('Mountains, NC\nVertical Relative Humidity Profile', **font2)
+
+        now = datetime.now()
+        current_time = now.strftime("%I:%M %p")
+        #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.figtext(0.5,-0.2,"AppalachianWX.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+        #show/save graphic
+        plt.savefig("output/SwNcHumidityPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+        #plt.show()
+    elif len(height) == 0:
+        fig = plt.figure()
+        fig.patch.set_facecolor('grey')
+        ax = plt.axes()
+        ax.set_facecolor('grey')
+        plt.text(0.5,0.5,"All Stations Down",color='white',size=22,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.savefig("output/SwNcHumidityPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+
+SwNcHumidity()
