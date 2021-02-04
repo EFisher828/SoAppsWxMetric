@@ -567,29 +567,32 @@ def windchill():
         Temp_8 = Temp_7.strip(' ')
         Temp = eval(Temp_8)
         Temperature = Temp
-        barnames.append(names[i])
-        Wind_1 = str(Tr[6])
-        Wind_2 = Wind_1.split('<')
-        Wind_3 = str(Wind_2[9])
-        Wind_4 = Wind_3.split('>')
-        Wind_5 = str(Wind_4[1])
-        Wind = Wind_5[1:]
-        print(Wind)
+        if Temperature > -40:
+            barnames.append(names[i])
+            Wind_1 = str(Tr[6])
+            Wind_2 = Wind_1.split('<')
+            Wind_3 = str(Wind_2[9])
+            Wind_4 = Wind_3.split('>')
+            Wind_5 = str(Wind_4[1])
+            Wind = Wind_5[1:]
+            print(Wind)
 
-        if Wind[:5] == 'Calm ':
-            speed.append(0)
-        elif Wind[6:8] == '°F':
-            speed.append(0)
+            if Wind[:5] == 'Calm ':
+                speed.append(0)
+            elif Wind[6:8] == '°F':
+                speed.append(0)
+            else:
+                Speed_1 = Wind.split('at ')
+                Speed_2 = str(Speed_1[1])
+                Speed_3 = Speed_2.split(' mph')
+                Speed_4 = eval(Speed_3[0])
+                speed.append(Speed_4)
+                
+            plotdata.append(Temperature)
+            print(plotdata)
+            print(speed)
         else:
-            Speed_1 = Wind.split('at ')
-            Speed_2 = str(Speed_1[1])
-            Speed_3 = Speed_2.split(' mph')
-            Speed_4 = eval(Speed_3[0])
-            speed.append(Speed_4)
-            
-        plotdata.append(Temperature)
-        print(plotdata)
-        print(speed)
+            print("Station Error (too cold!)")
         i = i + 1
 
     except:
