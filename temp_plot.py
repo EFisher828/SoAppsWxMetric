@@ -1811,7 +1811,7 @@ def SwNcTemp():
         #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
-        plt.figtext(0.5,-0.2,"AppalachianWX.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+        plt.figtext(0.5,-0.2,"Produced by AppalachianWX.com\nIn Partnership with Local Yokel Weather",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
         #show/save graphic
         plt.savefig("output/SwNcTempPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
         #plt.show()
@@ -2062,7 +2062,7 @@ def SwNcHumidity():
         #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
-        plt.figtext(0.5,-0.2,"AppalachianWX.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+        plt.figtext(0.5,-0.2,"Produced by AppalachianWX.com\nIn Partnership with Local Yokel Weather",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
         #show/save graphic
         plt.savefig("output/SwNcHumidityPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
         #plt.show()
