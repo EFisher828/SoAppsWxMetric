@@ -48,31 +48,6 @@ def wncbar():
         print("FLET missing")
         i = i + 1
 
-
-    #RaysWeather
-    #url = 'http://booneweather.com/'
-    #html = urllib.request.urlopen(url)
-    #soup = BeautifulSoup(html,features='html.parser')
-    #Map = str(soup.find('map', {"name":"cc"}))
-
-    #try:
-
-        #Valle Crucis 2677'
-     #   Area_1 = Map.split('<area')
-     #   Area_2 = str(Area_1[3])
-     #   Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-     #   Temp_2 = str(Temp_1[1])
-     #   Temp_3 = Temp_2.split('°F')
-     #   Data = eval(Temp_3[0])
-     #   Temperature.append(Data)
-     #   barnames.append(names[i])
-     #   i = i + 1
-
-    #except:
-     #   print("Valle Crucis Missing")
-     #  i = i + 1
-
-
     #CRONOS
     url = 'https://climate.ncsu.edu/cronos/?station=ktnb'
     html = urllib.request.urlopen(url)
@@ -99,44 +74,6 @@ def wncbar():
     except:
         print("KTNB missing")
         i = i + 1
-
-
-    #RaysWeather
-    #url = 'http://averyweather.com/'
-    #html = urllib.request.urlopen(url)
-    #soup = BeautifulSoup(html,features='html.parser')
-    #Map = str(soup.find('map', {"name":"cc"}))
-
-    
-    #try:
-
-
-        #Linville 3655'
-        #Area_1 = Map.split('<area')
-        #Area_2 = str(Area_1[5])
-        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        #Temp_2 = str(Temp_1[1])
-        #Temp_3 = Temp_2.split('°F')
-        #Data = eval(Temp_3[0])
-        #Temperature.append(Data)
-        #barnames.append(names[i])
-        #i = i + 1
-
-        #Seven Devils 3944'
-        #Area_1 = Map.split('<area')
-        #Area_2 = str(Area_1[11])
-        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        #Temp_2 = str(Temp_1[1])
-        #Temp_3 = Temp_2.split('°F')
-        #Data = eval(Temp_3[0])
-        #Temperature.append(Data)
-        #barnames.append(names[i])
-        #i = i + 1
-
-    #except:
-        #print("Linville or Seven Devils Missing")
-        #i = i + 1
-
 
     #CRONOS
     url = 'https://climate.ncsu.edu/cronos/?station=BEAR'
@@ -191,43 +128,6 @@ def wncbar():
     except:
         print("JEFF missing")
         i = i + 1
-
-    #RaysWeather
-    #url = 'http://averyweather.com/'
-    #html = urllib.request.urlopen(url)
-    #soup = BeautifulSoup(html,features='html.parser')
-    #Map = str(soup.find('map', {"name":"cc"}))
-
-    
-    #try:
-
-
-        #Sugar Mountain 5000'
-        #Area_1 = Map.split('<area')
-        #Area_2 = str(Area_1[7])
-        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        #Temp_2 = str(Temp_1[1])
-        #Temp_3 = Temp_2.split('°F')
-        #Data = eval(Temp_3[0])
-        #Temperature.append(Data)
-        #barnames.append(names[i])
-        #i = i + 1
-
-        #Beech Mountain 5300'
-        #Area_1 = Map.split('<area')
-        #Area_2 = str(Area_1[1])
-        #Temp_1 = Area_2.split('Temp:&lt;/td&gt;&lt;td&gt;')
-        #Temp_2 = str(Temp_1[1])
-        #Temp_3 = Temp_2.split('°F')
-        #Data = eval(Temp_3[0])
-        #Temperature.append(Data)
-        #barnames.append(names[i])
-        #i = i + 1
-
-    #except:
-        #print("Sugar or Beech Missing")
-        #i = i + 1
-
         
     #CRONOS
     url = 'https://climate.ncsu.edu/cronos/?station=grandfathr'
@@ -260,7 +160,6 @@ def wncbar():
     except:
         print("Grandfathr missing")
         i = i + 1
-
         
     #CRONOS
     url = 'https://climate.ncsu.edu/cronos/?station=MITC'
@@ -289,31 +188,6 @@ def wncbar():
     except:
         print("MITC missing")
         i = i + 1
-
-
-    #NCHighPeaks
-    #url = 'https://nchighpeaks.org/davis/index.html'
-    #html = urllib.request.urlopen(url)
-    #soup = BeautifulSoup(html,features='html.parser')
-
-    #try:
-            
-        #Table = str(soup.find('table').find_all('tr'))
-        #Tr = Table.split(',')
-
-        #Temp_1 = str(Tr[0])
-        #Temp_2 = Temp_1.split('<td class="stats_data">')
-        #Temp_3 = str(Temp_2[1])
-        #Temp_4 = Temp_3.split('°F')
-        #Temp_5 = str(Temp_4[0])
-        #Temp = eval(Temp_5)
-        #Temperature.append(Temp)
-        #barnames.append(names[i])
-        #i = i + 1
-
-    #except:
-        #print("Mitchell Top missing")
-        #i = i + 1
 
     print(Temperature)
 
@@ -366,14 +240,14 @@ def wncbar():
                 plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
             elif temp_height < 0 and len_finder >= 5:
                 plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
-        plt.title('Mountains, NC\nVertical Temperature Profile', **font2)
+        plt.title('North/Central Mountains, NC\nObserved Temperature Profile', **font2)
 
         now = datetime.now()
         current_time = now.strftime("%I:%M %p")
         #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
-        plt.figtext(0.5,-0.2,"AppalachianWX.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+        plt.figtext(0.5,-0.2,"CarolinaWeatherGroup.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
         #show/save graphic
         plt.savefig("output/wncbarplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
         #plt.show()
@@ -1804,14 +1678,14 @@ def SwNcTemp():
                 plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
             elif temp_height < 0 and len_finder >= 5:
                 plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
-        plt.title('Mountains, NC\nVertical Temperature Profile', **font2)
+        plt.title('Southwest Mountains, NC\nObserved Temperature Profile', **font2)
 
         now = datetime.now()
         current_time = now.strftime("%I:%M %p")
         #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
-        plt.figtext(0.5,-0.2,"Produced by AppalachianWX.com\nIn Partnership with Local Yokel Weather",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+        plt.figtext(0.5,-0.2,"CarolinaWeatherGroup.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
         #show/save graphic
         plt.savefig("output/SwNcTempPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
         #plt.show()
@@ -2055,14 +1929,14 @@ def SwNcHumidity():
                 plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
             elif temp_height < 0 and len_finder >= 5:
                 plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
-        plt.title('Mountains, NC\nVertical Relative Humidity Profile', **font2)
+        plt.title('Southwest Mountains, NC\nObserved Relative Humidity Profile', **font2)
 
         now = datetime.now()
         current_time = now.strftime("%I:%M %p")
         #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
         plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
-        plt.figtext(0.5,-0.2,"Produced by AppalachianWX.com\nIn Partnership with Local Yokel Weather",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+        plt.figtext(0.5,-0.2,"CarolinaWeatherGroup.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
         #show/save graphic
         plt.savefig("output/SwNcHumidityPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
         #plt.show()
@@ -2075,3 +1949,255 @@ def SwNcHumidity():
         plt.savefig("output/SwNcHumidityPlot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
 
 SwNcHumidity()
+
+def wnchumidity():
+
+    names = ('South Asheville 2060ft','Boone 2980ft', 'Bearwallow Mtn 4200ft', 'West Jefferson 4600ft','Grandfather Mtn 5280ft','Mt Mitchell 6200ft')#'Valle Crucis 2670ft',,'Mt Mitchell #1 6600ft 'Linville 3650ft', 'Seven Devils 3940ft', ,'Sugar Mtn 5000ft'
+    
+    barnames = []
+    Temperature = []
+    Elevation = []
+    i = 0
+
+    
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=FLET'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("FLET missing")
+        i = i + 1
+
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=ktnb'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("KTNB missing")
+        i = i + 1
+
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=BEAR'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("BEAR missing")
+        i = i + 1
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=JEFF'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("JEFF missing")
+        i = i + 1
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=grandfathr'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        if Dewpoint > 2:   
+            Temperature.append(Dewpoint)
+            barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("Grandfathr missing")
+        i = i + 1
+
+        
+    #CRONOS
+    url = 'https://climate.ncsu.edu/cronos/?station=MITC'
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html,features='html.parser')
+
+    try:
+            
+        Table = str(soup.find('table', {"class":"CurrentConditions"}).find_all('tr'))
+        Tr = Table.split(',')
+
+        Dew_1 = str(Tr[5])
+        Dew_2 = Dew_1.split('<')
+        Dew_3 = str(Dew_2[11])
+        Dew_4 = Dew_3.split('>')
+        Dew_5 = str(Dew_4[1])
+        Dew_6 = Dew_5.split('%')
+        Dew_7 = str(Dew_6[0])
+        Dew_8 = Dew_7.split(' ')
+        Dew_9 = str(Dew_8[1])
+        Dewpoint = eval(Dew_9)
+        Temperature.append(Dewpoint)
+        barnames.append(names[i])
+        i = i + 1
+
+    except:
+        print("MITC missing")
+        i = i + 1
+    print(Temperature)
+
+    fig = plt.figure()
+    fig.patch.set_facecolor('grey')
+    ax = plt.axes()
+    ax.set_facecolor('grey')
+    
+    #data and bar names
+    height = Temperature
+    bars = barnames
+    y_pos = np.arange(len(bars))
+
+    #max/mins & fonts
+    if len(height) > 0:
+        maximum = 110
+        minimum = 0
+        font = {'size':16,'color':'white'}
+        font2 = {'size':22,'color':'white'}
+
+    #color
+        color_1 = np.array(height)
+        color_2 = cm.YlGn((color_1 / float(max(color_1))))
+        ax.xaxis.label.set_color('white')
+        ax.spines['bottom'].set_color('white')
+        ax.spines['top'].set_color('white') 
+        ax.spines['right'].set_color('white')
+        ax.spines['left'].set_color('white')
+        ax.tick_params(axis='x', colors='white')
+        ax.tick_params(axis='y', colors='white')
+ 
+    #horizontal bars
+        plt.barh(y_pos, height, color = color_2)
+ 
+    #y-axis names
+        plt.yticks(y_pos, bars, **font)
+
+    #x-axis
+        plt.xlim(minimum,maximum)
+
+    #x label
+        plt.xlabel('Relative Humidity (%)',**font)
+
+        for i, v in enumerate(height):
+            temp_height = height[i]
+            len_finder = len(str(temp_height))
+            if temp_height >= 0:
+                plt.text(v , i-0.1, str(v), color='white', fontsize='13')
+            elif temp_height < 0 and len_finder < 5:
+                plt.text(v-2.1 , i-0.1, str(v), color='white', fontsize='13')
+            elif temp_height < 0 and len_finder >= 5:
+                plt.text(v-2.8 , i-0.1, str(v), color='white', fontsize='13')
+        plt.title('North/Central Mountains, NC\nObserved Relative Humidity Profile', **font2)
+
+        now = datetime.now()
+        current_time = now.strftime("%I:%M %p")
+        #plt.text(0.87,0.94,current_time,color='white',size=18,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.text(-0.27,-0.12,"Source: NCSCO",color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.text(-0.27,1.05,"Valid: " + current_time,color='white',size=16,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.figtext(0.5,-0.2,"CarolinaWeatherGroup.com",color='white',size=10,horizontalalignment='center',transform = ax.transAxes)
+        #show/save graphic
+        plt.savefig("output/wnchumidityplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+        #plt.show()
+    elif len(height) == 0:
+        fig = plt.figure()
+        fig.patch.set_facecolor('grey')
+        ax = plt.axes()
+        ax.set_facecolor('grey')
+        plt.text(0.5,0.5,"All Stations Down",color='white',size=22,horizontalalignment='center',verticalalignment='center',transform = ax.transAxes)
+        plt.savefig("output/wnchumidityplot.png",bbox_inches='tight', facecolor=fig.get_facecolor())
+
+wnchumidity()
